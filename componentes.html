@@ -6,11 +6,12 @@
     <title>Ola Mundo</title>
 </head>
 <body>
-<div id="app">
-</div>
+<div id="app"></div>
+
 <script src="https://cdn.jsdelivr.net/npm/react/umd/react.development.js" crossorigin></script>
 <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.development.js" crossorigin></script>
 <script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+
 <script type="text/jsx">
 
     const app = document.getElementById('app'); //get the app div
@@ -18,19 +19,26 @@
     function Cabecalho(props) {
         return ( 
             <nav>
-             <div>
-                <span><h1>{props.titulo}</h1> |
-                <h2>{props.subtitulo}</h2>
-                 </span>   
+                <div>
+                <strong>{props.titulo}</strong> - 
+                <span>
+                    <a href="#">{props.subtitulo}</a> | 
+                    <a href="#">{props.subtitulo}</a> | 
+                    <Href link="https://www.google.com" text="Google"/>
+                </span>   
             </div>
             </nav>
         )
     }
 
-    const root = ReactDOM.createRoot(app); //create a root element
-    root.render(<Cabecalho titulo="Meu primeiro componente" subtitulo="Meu primeiro subtitulo"/>
-    );
-    </script>
+    function Href(props) {
+        return (
+            <a href={props.link}>{props.text}</a>
+        )
+    }
+    const root = ReactDOM.createRoot(app)
+    root.render(<Cabecalho titulo="Meu primeiro componente" subtitulo="menu"/>)
+</script>
 
 </body>
 
