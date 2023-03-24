@@ -7,23 +7,29 @@
 </head>
 <body>
 <div id="app">
-
-    //import react-developement, react-dom and babel latest scripts from jsdelivr.net
+</div>
 <script src="https://cdn.jsdelivr.net/npm/react/umd/react.development.js" crossorigin></script>
 <script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.development.js" crossorigin></script>
 <script src="https://cdn.jsdelivr.net/babel-standalone/latest/babel.min.js"></script>
+<script type="text/jsx">
 
     const app = document.getElementById('app'); //get the app div
 
     function Cabecalho(props) {
-        return (
-            <div>
-                <strong>
-                <h1>{props.titulo}</h1>
+        return ( 
+            <nav>
+             <div>
+                <h1>{props.titulo}</h1> |
                 <h2>{props.subtitulo}</h2>
             </div>
-        );
+            </nav>
+        )
     }
+
+    const root = ReactDOM.createRoot(app); //create a root element
+    root.render(<Cabecalho titulo="Meu primeiro componente" subtitulo="Meu primeiro subtitulo"/>
+    );
+    </script>
 
 </body>
 
