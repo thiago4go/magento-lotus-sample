@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ola Mundo</title>
+</head>
+<body>
+<div id="app"></div>
+
+<script src="https://cdn.jsdelivr.net/npm/react/umd/react.development.js" crossorigin></script>
+<script src="https://cdn.jsdelivr.net/npm/react-dom/umd/react-dom.development.js" crossorigin></script>
+<script src="https://cdn.jsdelivr.net/npm/@babel/standalone/babel.min.js"></script>
+
+<script type="text/jsx">
+
+    const app = document.getElementById('app'); //get the app div
+
+    function Cabecalho(props) {
+        return ( 
+            <nav>
+                <div>
+                <strong>{props.titulo}</strong> - 
+                <span>
+                    <a href="#">{props.subtitulo}</a> | 
+                    <a href="#">{props.subtitulo}</a> | 
+                    <Href link="https://www.google.com" text="Google"/>
+                </span>   
+            </div>
+            </nav>
+        )
+    }
+
+
+
+    function Href(props) {
+        return (
+            <a href={props.link}>{props.text}</a>
+        )
+    }
+
+    function Lista() {
+        const cursos = ['HTML', 'CSS', 'JS', 'React', 'Node', 'MongoDB']
+        return ( 
+            <ul>
+                <li>
+                    {cursos.map((curso) => {
+                        return <li key={curso}>{curso} <LikeButton/> </li> 
+                    })}
+                </li>
+            </ul>
+
+        )
+        
+    }
+ 
+    //function to a like button and likes count in React
+    
+    function LikeButton() {
+        const [likes, setLikes] = React.useState(0) 
+        /*useState is a hook that returns an array with two elements, 
+        the first is the state and the second is a function to change the state*/
+       
+        //setLikes is a function to change the state
+        return (
+            <stan>
+                <button onClick={() => setLikes(likes + 1)}>Like</button> 
+                {likes} likes
+            </stan>
+        )
+    }
+
+
+ 
+
+
+    const root = ReactDOM.createRoot(app)
+    root.render(<><Cabecalho titulo="Meu primeiro componente" subtitulo="menu"/><Lista/></>)
+</script>
+
+</body>
+
+</html>
